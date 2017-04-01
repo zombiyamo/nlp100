@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # ngramとは...文章などで隣り合うn個の事
 # 単語ngramならngram関数に単語のリスト,文字ngramなら文字のリストを渡せばよい
+# hoge
 
 def ngram(list,n):
 	results = []
