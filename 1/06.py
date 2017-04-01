@@ -1,21 +1,24 @@
 # -*- coding: utf-8 -*-
 
-def ngram(text,n):
-	results = []
-	if len(text) >= n:
-		for i in xrange(len(text)-n+1):
-			results.append(text[i:i+n])
-	return results
+
+def ngram(text, n):
+    results = []
+    if len(text) >= n:
+        for i in xrange(len(text)-n+1):
+            results.append(text[i:i+n])
+    return results
 
 
-X = ngram("paraparaparadise",2)
-Y = ngram("paragraph",2)
+X = ngram("paraparaparadise", 2)
+Y = ngram("paragraph", 2)
 
 union = X + Y
 print union
 
+
 diff = list(set(X).difference(set(Y)))
 print diff
+
 
 product = list(set(X).intersection(set(Y)))
 print product
