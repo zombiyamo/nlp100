@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
-from prettyprint import pp
-import string
+# ngramとは...文章などで隣り合うn個の事
+# 単語ngramならngram関数に単語のリスト,文字ngramなら文字のリストを渡せばよい
 
-str = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can.".translate(None,'.')
-strdic = {}
-strs = str.split()
+def ngram(list,n):
+	results = []
+	if len(list) >= n:
+		for i in xrange(len(list)-n+1):
+			results.append(list[i:i+n])
+	return results
 
-for i in range(len(strs)):
-	if i in [0, 4, 5, 6, 7, 8, 14, 15, 18]:
-		strdic[i+1] = strs[i][0]
-	else:
-		strdic[i+1] = strs[i][0] + strs[i][1]
-print(strdic)
+
+text = 'I am an NLPer'
+wordList = text.split()
+charList = text.replace(' ','')
+print ngram(wordList, 2)
+print ngram(charList, 2)
