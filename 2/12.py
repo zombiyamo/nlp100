@@ -16,4 +16,4 @@ if len(args) == 3:
 
     with open('merged.txt', 'w') as f:
         for (a, b) in zip(col1, col2):
-            f.write(a[:-1] + '    ' + b)
+            f.write(a[:-1] + '\t' + b)
