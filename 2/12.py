@@ -3,17 +3,17 @@ import sys
 
 
 args = sys.argv
-if len(args) == 3:
+if len(args) == 2:
     col1 = []
     col2 = []
-    mergeText = ''
-    with open('col1.txt', 'r') as f:
-        for row in f:
-            col1.append(row)
-    with open('col2.txt', 'r') as f:
-        for row in f:
-            col2.append(row)
+    for line in open(args[1]):
+        lines = line.split()
+        col1.append(lines[0])
+        col2.append(lines[1])
 
-    with open('merged.txt', 'w') as f:
-        for (a, b) in zip(col1, col2):
-            f.write(a[:-1] + '\t' + b)
+    with open('col1.txt', 'w') as f:
+        for col in col1:
+            f.write(col + '\n')
+    with open('col2.txt', 'w') as f:
+        for col in col2:
+            f.write(col + '\n')
