@@ -5,18 +5,14 @@ args = sys.argv
 
 if len(args) == 3:
     list = []
-    index = 0
+    N = args[2]
     # 分割する行数
-    divNum = int(sum(1 for i in open(args[1])) / int(args[2]))
+    divNum = int(sum(1 for i in open(args[1])) / int(N))
     # 1行ずつリストに格納
     for line in open(args[1]):
         list.append(line)
 
-    # divNum * index+1までの行をファイルに追記
-    # 書き込みでできたほうが良い気がする
-    for i, x in enumerate(list):
-        if i < divNum * (index+1):
-            with open(args[1].replace('.txt', str(index) + '.txt'), 'a') as f:
-                f.write(x)
-        else:
-            index += 1
+    for i in xrange(0, int(N)):
+        with open(args[1].replace('.txt', str(i) + '.txt'), 'w') as f:
+            for j in xrange(divNum * i, divNum * (i+1)):
+                f.write(list[j])
